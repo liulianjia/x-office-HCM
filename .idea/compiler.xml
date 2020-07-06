@@ -6,11 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hcm-parent" />
+        <module name="hcm-eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="hcm-parent" target="1.5" />
+      <module name="hcm-eureka" target="1.6" />
+      <module name="hcm-gateway" target="1.6" />
+      <module name="hcm-parent" target="1.6" />
+      <module name="hcm-service" target="1.6" />
+      <module name="hcm-service-api" target="1.6" />
+      <module name="hcm-web" target="1.6" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hcm-eureka" options="" />
+    </option>
   </component>
 </project>
