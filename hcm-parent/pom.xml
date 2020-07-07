@@ -19,6 +19,7 @@
         <module>hcm-web</module>
         <module>hcm-eureka</module>
         <module>hcm-common</module>
+        <module>hcm-common-db</module>
     </modules>
 
     <parent>

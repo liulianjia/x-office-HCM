@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-common/hcm-common.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-common/hcm-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-common-db/hcm-common-db.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-common-db/hcm-common-db.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-eureka/hcm-eureka.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-eureka/hcm-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-gateway/hcm-gateway.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-gateway/hcm-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-parent.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-parent.iml" />
