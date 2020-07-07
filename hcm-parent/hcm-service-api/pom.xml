@@ -13,4 +13,21 @@
     <description>
         所有微服务工程的API抽取(JavaBean|Feign)
     </description>
+
+    <!-- 依赖包 -->
+    <dependencies>
+        <!-- 通用的common -->
+        <dependency>
+            <groupId>com.hcm</groupId>
+            <artifactId>hcm-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- 每个工程都有POJO,都需要用到该包对应的注解 -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>
