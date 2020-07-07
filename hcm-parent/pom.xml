@@ -18,6 +18,7 @@
         <module>hcm-service-api</module>
         <module>hcm-web</module>
         <module>hcm-eureka</module>
+        <module>hcm-common</module>
     </modules>
 
     <parent>

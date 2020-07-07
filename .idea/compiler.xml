@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hcm-eureka" />
+        <module name="hcm-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hcm-common" target="1.8" />
       <module name="hcm-eureka" target="1.8" />
       <module name="hcm-gateway" target="1.8" />
       <module name="hcm-parent" target="1.8" />
@@ -20,6 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hcm-common" options="-parameters" />
       <module name="hcm-eureka" options="-parameters" />
     </option>
   </component>
