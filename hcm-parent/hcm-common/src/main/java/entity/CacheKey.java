@@ -1,7 +1,7 @@
 package entity;
 
 /**
- * 缓存
+ * 缓存工具类
  */
 public class CacheKey {
     /**
