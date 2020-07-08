@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="hcm-eureka" />
         <module name="hcm-common" />
+        <module name="hcm-service-user" />
         <module name="hcm-common-db" />
         <module name="hcm-service-user-api" />
       </profile>
@@ -20,6 +21,7 @@
       <module name="hcm-parent" target="1.8" />
       <module name="hcm-service" target="1.8" />
       <module name="hcm-service-api" target="1.8" />
+      <module name="hcm-service-user" target="1.8" />
       <module name="hcm-service-user-api" target="1.8" />
       <module name="hcm-web" target="1.8" />
     </bytecodeTargetLevel>
@@ -29,6 +31,7 @@
       <module name="hcm-common" options="-parameters" />
       <module name="hcm-common-db" options="-parameters" />
       <module name="hcm-eureka" options="-parameters" />
+      <module name="hcm-service-user" options="-parameters" />
       <module name="hcm-service-user-api" options="-parameters" />
     </option>
   </component>
