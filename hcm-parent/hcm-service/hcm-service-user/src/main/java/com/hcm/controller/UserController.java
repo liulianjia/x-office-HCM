@@ -15,8 +15,11 @@ import java.util.List;
 @CrossOrigin //跨域
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping(value="/getUsers", method= RequestMethod.GET)
     public List<User> getUsers(){
