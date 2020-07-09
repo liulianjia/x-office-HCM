@@ -2,7 +2,8 @@ package com.hcm.controller;
 
 import com.hcm.service.UserService;
 import com.hcm.user.pojo.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import entity.Result;
+import entity.StatusCode;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,8 +23,9 @@ public class UserController {
     }
 
     @RequestMapping(value="/getUsers", method= RequestMethod.GET)
-    public List<User> getUsers(){
+    public Result<List<User>> getUsers(){
         List<User> users = userService.getUsers();
-        return users;
+        // 响应结果封装 Restful风格
+        return Result.buildResult(StatusCode.OK,"查询用户成功",users);
     }
 }

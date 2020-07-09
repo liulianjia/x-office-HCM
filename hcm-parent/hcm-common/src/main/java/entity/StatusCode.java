@@ -4,11 +4,13 @@ package entity;
  * 响应状态返回码
  */
 public class StatusCode {
-    public static final int OK = 2000; //成功
-    public static final int ERROR = 2001; //失败
-    public static final int LOGINERROR = 2002; //用户名或密码错误
-    public static final int ACCESSERROR = 2003; //权限不足
-    public static final int REMOTEERROR = 2004; //远程调用失败
-    public static final int REPERROR = 2005; //重复操作
-    public static final int NOTFOUNDERROR = 2006; //没有对应的数据
+    public static final Integer OK = 200; //正确
+    public static final Integer BAD_REQUEST = 400; //错误的请求
+    public static final Integer UNAUTHORIZED = 401; //禁止访问
+    public static final Integer NOT_FOUND = 404; //没有可用的数据
+    public static final Integer PWD_ERROR = 300; //密码错误
+    public static final Integer EXIT = 403; //已经存在
+    public static final Integer INTERNAL_SERVER_ERROR = 500; //服务器遇到一个未曾预料的状况
+    public static final Integer SERVICE_UNAVAILABLE = 503; //服务器当前无法处理请求
+    public static final Integer ERROR = 9999; //数据不能为空
 }

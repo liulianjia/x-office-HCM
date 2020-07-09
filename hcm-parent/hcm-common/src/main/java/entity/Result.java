@@ -7,14 +7,14 @@ public class Result<T> {
     /**
      * 状态码
      */
-    private String status;
+    private Integer status;
 
     /**
      * 获取状态。
      *
      * @return 状态
      */
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
@@ -46,13 +46,13 @@ public class Result<T> {
         return data;
     }
 
-    private Result(String status, String message, T data) {
+    private Result(Integer status, String message, T data) {
         this.status = status;
         this.message = message;
         this.data = data;
     }
 
-    private Result(String status, String message) {
+    private Result(Integer status, String message) {
         this.status = status;
         this.message = message;
     }
@@ -72,8 +72,8 @@ public class Result<T> {
      *            数据
      * @return 结构数据
      */
-    public static <T> Result<T> buildResult(Status status, String message, T data) {
-        return new Result<T>(status.getCode(), message, data);
+    public static <T> Result<T> buildResult(Integer status, String message, T data) {
+        return new Result<T>(status, message, data);
     }
 
     /**
@@ -133,27 +133,31 @@ public class Result<T> {
         /**
          * 状态
          */
-        OK("200", "正确"), BAD_REQUEST("400", "错误的请求"), UNAUTHORIZED("401", "禁止访问"), NOT_FOUND("404",
-                "没有可用的数据"),  PWD_EEOR("300",
-                "密码错误"),EXIT("403",
-                "已经存在"),INTERNAL_SERVER_ERROR("500",
-                "服务器遇到了一个未曾预料的状况"), SERVICE_UNAVAILABLE("503", "服务器当前无法处理请求"), ERROR("9999", "数据不能为空");
+        OK(200, "正确"),
+        BAD_REQUEST(400, "错误的请求"),
+        UNAUTHORIZED(401, "禁止访问"),
+        NOT_FOUND(404,"没有可用的数据"),
+        PWD_ERROR(300,"密码错误"),
+        EXIT(403,"已经存在"),
+        INTERNAL_SERVER_ERROR(500,"服务器遇到了一个未曾预料的状况"),
+        SERVICE_UNAVAILABLE(503, "服务器当前无法处理请求"),
+        ERROR(9999, "数据不能为空");
         /**
          * 状态码,长度固定为6位的字符串.
          */
-        private String code;
+        private Integer code;
 
         /**
          * 错误信息.
          */
         private String reason;
 
-        Status(String code, String reason) {
+        Status(Integer code, String reason) {
             this.code = code;
             this.reason = reason;
         }
 
-        public String getCode() {
+        public Integer getCode() {
             return code;
         }
 
