@@ -10,8 +10,22 @@
 		select * from user
 	</select>
 
-	<insert id="addUser" parameterType="User">
+	<insert id="add" parameterType="User">
 		insert into user(NAME, PASSWORD) values(#{name}, #{password})
 	</insert>
+
+	<update id="update" parameterType="User">
+		update user
+			<trim prefix="set" suffixOverrides=",">
+				<if test="id != null">id=#{id},</if>
+				<if test="name != null">name=#{name},</if>
+				<if test="password != null">password=#{password},</if>
+			</trim>
+		where ID=#{id}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from user where id=#{id}
+	</delete>
 
 </mapper>

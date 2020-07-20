@@ -53,14 +53,19 @@ public class Result<T> {
         result.setCode(code);
         result.setMsg(msg);
         result.setData(object);
+
         return result;
     }
 
     /**
      * 成功，但返回体无数据
      */
-    public static Result success() {
-        return success();
+    public static Result success(Integer code, String msg) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMsg(msg);
+
+        return result;
     }
 
     /**

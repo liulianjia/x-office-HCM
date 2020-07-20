@@ -32,4 +32,23 @@ public class UserController {
         User user = userService.findById(id);
         return Result.success(new StatusCode().OK, "根据ID查询成功", user);
     }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public Result add(@RequestBody User user) {
+        userService.add(user);
+        return Result.success(new StatusCode().OK, "增加人员成功");
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+    public Result update(@PathVariable("id") Integer id,@RequestBody User user) {
+        user.setId(id);
+        userService.update(user);
+        return Result.success(new StatusCode().OK, "修改人员成功");
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public Result delete(@PathVariable("id") Integer id) {
+        userService.delete(id);
+        return Result.success(new StatusCode().OK, "删除人员成功");
+    }
 }
