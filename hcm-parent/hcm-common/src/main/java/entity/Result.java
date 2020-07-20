@@ -1,173 +1,75 @@
 package entity;
 
-/**
- * RESTful REST返回结果
- */
+import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Result", value = "Result")
 public class Result<T> {
     /**
-     * 状态码
+     * 返回体
      */
-    private Integer status;
+    @ApiModelProperty(value = "返回状态码", required = true)
+    private Integer code;//返回状态码
 
-    /**
-     * 获取状态。
-     *
-     * @return 状态
-     */
-    public Integer getStatus() {
-        return status;
+    @ApiModelProperty(value = "提示消息", required = true)
+    private String msg;//返回消息
+
+    @ApiModelProperty(value = "逻辑数据", required = true)
+    private T data;//返回数据
+
+    public Integer getCode() {
+        return code;
     }
 
-    /**
-     * 状态信息,错误描述.
-     */
-    private String message;
-
-    /**
-     * 获取消息内容。
-     *
-     * @return 消息
-     */
-    public String getMessage() {
-        return message;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    /**
-     * 数据.
-     */
-    private T data;
+    public String getMsg() {
+        return msg;
+    }
 
-    /**
-     * 获取数据内容。
-     *
-     * @return 数据
-     */
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
     public T getData() {
         return data;
     }
 
-    private Result(Integer status, String message, T data) {
-        this.status = status;
-        this.message = message;
+    public void setData(T data) {
         this.data = data;
     }
 
-    private Result(Integer status, String message) {
-        this.status = status;
-        this.message = message;
-    }
 
-    private Result(String message) {
-        this.message = message;
+
+    /**
+     * 成功，且返回体有数据
+     * @return
+     */
+    public static Result success(Integer code, String msg, Object object) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMsg(msg);
+        result.setData(object);
+        return result;
     }
 
     /**
-     * 创建一个带有<b>状态</b>、<b>消息</b>和<b>数据</b>的结果对象.
-     *
-     * @param status
-     *            状态
-     * @param message
-     *            消息内容
-     * @param data
-     *            数据
-     * @return 结构数据
+     * 成功，但返回体无数据
      */
-    public static <T> Result<T> buildResult(Integer status, String message, T data) {
-        return new Result<T>(status, message, data);
+    public static Result success() {
+        return success();
     }
 
     /**
-     * 创建一个带有<b>状态</b>、<b>消息</b>和<b>数据</b>的结果对象.
-     *
-     * @param status
-     *            状态
-     * @param message
-     *            消息内容
-     * @return 结构数据
+     * 返回失败信息
      */
-    public static <T> Result<T> buildResult(Status status, String message) {
-        return new Result<T>(status.getCode(), message);
-    }
-
-    /**
-     * 创建一个带有<b>状态</b>和<b>数据</b>的结果对象.
-     *
-     * @param status
-     *            状态
-     * @param data
-     *            数据
-     * @return 结构数据
-     */
-    public static <T> Result<T> buildResult(Status status, T data) {
-        return new Result<T>(status.getCode(), status.getReason(), data);
-    }
-
-    /**
-     * 创建一个带有<b>状态</b>的结果对象.
-     *
-     * @param status
-     *            状态
-     * @return 结构数据
-     */
-    public static <T> Result<T> buildResult(Status status) {
-        return new Result<T>(status.getCode(), status.getReason());
-    }
-
-    /**
-     *
-     * <p>
-     * Title: 状态枚举
-     * </p>
-     *
-     * <p>
-     * Description: 用于Result构建时，规范状态值范围
-     * </p>
-     *
-     * <p>
-     * Copyright: Copyright (c) 2017 by unknown
-     * </p>
-     *
-     */
-    public enum Status {
-
-        /**
-         * 状态
-         */
-        OK(200, "正确"),
-        BAD_REQUEST(400, "错误的请求"),
-        UNAUTHORIZED(401, "禁止访问"),
-        NOT_FOUND(404,"没有可用的数据"),
-        PWD_ERROR(300,"密码错误"),
-        EXIT(403,"已经存在"),
-        INTERNAL_SERVER_ERROR(500,"服务器遇到了一个未曾预料的状况"),
-        SERVICE_UNAVAILABLE(503, "服务器当前无法处理请求"),
-        ERROR(9999, "数据不能为空");
-        /**
-         * 状态码,长度固定为6位的字符串.
-         */
-        private Integer code;
-
-        /**
-         * 错误信息.
-         */
-        private String reason;
-
-        Status(Integer code, String reason) {
-            this.code = code;
-            this.reason = reason;
-        }
-
-        public Integer getCode() {
-            return code;
-        }
-
-        public String getReason() {
-            return reason;
-        }
-
-        @Override
-        public String toString() {
-            return code + ": " + reason;
-        }
+    public static Result Err(Integer code, String msg) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMsg(msg);
+        return  result;
     }
 }

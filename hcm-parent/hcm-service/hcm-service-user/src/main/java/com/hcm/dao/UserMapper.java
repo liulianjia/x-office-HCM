@@ -7,4 +7,6 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     public List<User> getUsers();
+
+    public User findById(Integer id);
 }

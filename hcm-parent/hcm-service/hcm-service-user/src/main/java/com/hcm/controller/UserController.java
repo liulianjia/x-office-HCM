@@ -4,15 +4,13 @@ import com.hcm.service.UserService;
 import com.hcm.user.pojo.User;
 import entity.Result;
 import entity.StatusCode;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin //跨域
 public class UserController {
 
@@ -26,6 +24,12 @@ public class UserController {
     public Result<List<User>> getUsers(){
         List<User> users = userService.getUsers();
         // 响应结果封装 Restful风格
-        return Result.buildResult(StatusCode.OK,"查询用户成功",users);
+        return Result.success(new StatusCode().OK, "查询人员成功", users);
+    }
+
+    @RequestMapping(value = "/findById/{id}", method = RequestMethod.GET)
+    public Result<User> findById(@PathVariable("id") Integer id) {
+        User user = userService.findById(id);
+        return Result.success(new StatusCode().OK, "根据ID查询成功", user);
     }
 }

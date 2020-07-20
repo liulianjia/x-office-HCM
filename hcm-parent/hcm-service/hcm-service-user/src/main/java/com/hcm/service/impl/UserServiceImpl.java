@@ -21,4 +21,10 @@ public class UserServiceImpl implements UserService {
         List<User> users = userMapper.getUsers();
         return users;
     }
+
+    @Override
+    public User findById(Integer id) {
+        User user = userMapper.findById(id);
+        return user;
+    }
 }
