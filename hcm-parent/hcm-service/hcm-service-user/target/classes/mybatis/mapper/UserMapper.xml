@@ -10,6 +10,16 @@
 		select * from user
 	</select>
 
+	<select id="search" resultType="User" parameterType="user">
+		select * from user where 1=1
+		<if test="name != '' and name != null">
+			and name like CONCAT('%',#{name},'%')
+		</if>
+		<if test="password != '' and password != null">
+			and password like CONCAT('%',#(password),'%')
+		</if>
+	</select>
+
 	<insert id="add" parameterType="User">
 		insert into user(NAME, PASSWORD) values(#{name}, #{password})
 	</insert>

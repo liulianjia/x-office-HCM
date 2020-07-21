@@ -1,12 +1,12 @@
 package com.hcm.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.hcm.service.UserService;
 import com.hcm.user.pojo.User;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -33,6 +33,12 @@ public class UserController {
         return Result.success(new StatusCode().OK, "根据ID查询成功", user);
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public Result<List<User>> search(@RequestBody User user) {
+        List<User> users = userService.search(user);
+        return Result.success(new StatusCode().OK, "条件查询成功", users);
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Result add(@RequestBody User user) {
         userService.add(user);
@@ -50,5 +56,24 @@ public class UserController {
     public Result delete(@PathVariable("id") Integer id) {
         userService.delete(id);
         return Result.success(new StatusCode().OK, "删除人员成功");
+    }
+
+    /**
+     * 分页
+     */
+    @RequestMapping(value = "/findPage/{page}/{size}", method = RequestMethod.GET)
+    public Result<PageInfo<User>> findPage(@PathVariable("page")Integer page, @PathVariable("size")Integer size) {
+       PageInfo<User> pageInfo = userService.findPage(page, size);
+       int q = 10/0;
+       return Result.success(new StatusCode().OK, "分页查询成功", pageInfo);
+    }
+
+    /**
+     * 分页，条件查询
+     */
+    @RequestMapping(value = "/findPageBySearch/{page}/{size}", method = RequestMethod.POST)
+    public Result<PageInfo<User>> findPage(@RequestBody User user, @PathVariable("page")Integer page, @PathVariable("size")Integer size) {
+        PageInfo<User> pageInfo = userService.findPageBySearch(user, page, size);
+        return Result.success(new StatusCode().OK, "分页查询成功", pageInfo);
     }
 }
