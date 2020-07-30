@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-parent.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-service-api/hcm-service-api.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-service-api/hcm-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service-file/hcm-service/hcm-service-file.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service-file/hcm-service/hcm-service-file.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service-user/hcm-service-user.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service-user/hcm-service-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-service-api/hcm-service-user-api/hcm-service-user-api.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-service-api/hcm-service-user-api/hcm-service-user-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/hcm-parent/hcm-web/hcm-web.iml" filepath="$PROJECT_DIR$/hcm-parent/hcm-web/hcm-web.iml" />
