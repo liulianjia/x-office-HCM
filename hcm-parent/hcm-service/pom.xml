@@ -13,6 +13,9 @@
     <description>
         x-office 人力资本管理系统各大微服务的父工程
     </description>
+    <modules>
+        <module>hcm-service-files</module>
+    </modules>
 
     <!-- 依赖  -->
     <dependencies>

@@ -22,7 +22,6 @@
         <module>hcm-common-db</module>
         <module>hcm-service-api/hcm-service-user-api</module>
         <module>hcm-service/hcm-service-user</module>
-        <module>hcm-service/hcm-service-file</module>
     </modules>
 
     <parent>

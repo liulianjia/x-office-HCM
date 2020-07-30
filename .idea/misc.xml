@@ -11,7 +11,11 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/hcm-parent/hcm-service-api/test/pom.xml" />
         <option value="$PROJECT_DIR$/hcm-parent/hcm-service-file/pom.xml" />
+        <option value="$PROJECT_DIR$/hcm-parent/hcm-service/files/pom.xml" />
+        <option value="$PROJECT_DIR$/hcm-parent/hcm-service/files/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/hcm-parent/hcm-service/hcm-service-file/pom.xml" />
         <option value="$PROJECT_DIR$/hcm-parent/hcm-service/untitled/pom.xml" />
       </set>
     </option>
