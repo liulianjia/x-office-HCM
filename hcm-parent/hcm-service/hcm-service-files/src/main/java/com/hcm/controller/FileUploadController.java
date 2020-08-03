@@ -25,8 +25,11 @@ public class FileUploadController {
         );
 
         //调用FastDFSUtil工具类将文件传入到FastDFS中
-        FastDFSUtil.upload(fastDFSFile);
-        return Result.success(new StatusCode().OK, "上传成功");
+        String[] uplodas = FastDFSUtil.upload(fastDFSFile);
+        //拼接返回地址 url = http://192.168.31.254:8080/group1/MOO/00/00/xxx.jpg
+       // String url = "http://192.168.31.254:8080/" + uplodas[0] + "/" + uplodas[1];
+        String url = FastDFSUtil.getTrackerInfo() + "/" + uplodas[0] + "/" + uplodas[1];
+        return Result.success(new StatusCode().OK, "上传成功", url);
 
     }
 }
